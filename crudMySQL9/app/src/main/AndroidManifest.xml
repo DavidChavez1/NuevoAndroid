@@ -5,6 +5,7 @@
 
     <!-- 1. agregar permisos -->
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <dist:module dist:instant="true" />
 
 
