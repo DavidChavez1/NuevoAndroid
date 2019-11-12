@@ -61,5 +61,26 @@ app.get('/list_users/:id',(req,res) => {
 });
 
 //11. INSERT/UPDATE
+app.post('/reg_users',(req,res) => { 
+    connectionDB.query('INSERT INTO users (first_name,last_name,email,phone)', [req.params.id],(err, rows, fields) => {
+        if(!err){
+            console.log(rows);
+            res.send(rows);
+        } else {
+            console.log(err);
+            res.send(rows);
+        }
+    })
+});
 
 //12. DELETE
+app.delete('/delete_users/:id',(req,res) => { 
+    connectionDB.query('DELETE * FROM users WHERE id = ?', [req.params.id],(err, rows, fields) => {
+        if(!err){
+            console.log('User has been deleted');
+            res.send('User has been deleted');
+        } else {
+            console.log(err);
+        }
+    })
+});
